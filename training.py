@@ -40,11 +40,11 @@ target_file = 'CCMatrix.en-tr-en-revize.txt'
 dataset = TranslationDataset(source_file, target_file)
 print("Dataset oluşturuldu.")
 
-batch_size = 24
-dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=4, pin_memory=True)
+batch_size = 8
+dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, num_workers=1, pin_memory=True)
 
 val_dataset = list(zip(dataset.val_source, dataset.val_target))
-val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=4, pin_memory=True)
+val_dataloader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False, num_workers=1, pin_memory=True)
 print("Veri yükleyiciler oluşturuldu.")
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
